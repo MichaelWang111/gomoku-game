@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋小游戏</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- 游戏标题 -->
+    <h1>五子棋小游戏</h1>
+
+    <!-- 游戏信息面板 -->
+    <div class="game-info">
+        <div class="player-info active" id="player1">
+            <span class="stone black"></span>
+            <span>黑棋</span>
+        </div>
+        <div class="player-info" id="player2">
+            <span class="stone white"></span>
+            <span>白棋</span>
+        </div>
+    </div>
+
+    <!-- 棋盘容器 -->
+    <div class="board-container">
+        <div class="board" id="board"></div>
+    </div>
+
+    <!-- 重新开始按钮 -->
+    <button class="btn" id="restartBtn">重新开始</button>
+
+    <!-- 游戏结果弹窗 -->
+    <div class="result" id="result">
+        <h2>游戏结束</h2>
+        <p id="resultText"></p>
+        <button class="btn" id="playAgainBtn">再来一局</button>
+    </div>
+
+    <script type="module">
+        // 导入游戏模块
+        import { initGame } from './js/game.js';
+
+        // 获取 DOM 元素
+        const elements = {
+            boardEl: document.getElementById('board'),
+            resultEl: document.getElementById('result'),
+            resultTextEl: document.getElementById('resultText'),
+            player1El: document.getElementById('player1'),
+            player2El: document.getElementById('player2'),
+            restartBtn: document.getElementById('restartBtn'),
+            playAgainBtn: document.getElementById('playAgainBtn')
+        };
+
+        // 初始化游戏
+        initGame(elements);
+    </script>
+</body>
+</html>

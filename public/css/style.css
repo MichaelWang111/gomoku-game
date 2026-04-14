@@ -1,0 +1,172 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 页面主体样式 */
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    /* 标题样式 */
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-info {
+    /* 游戏信息面板 */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.player-info {
+    /* 玩家信息样式 */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.player-info.active {
+    /* 当前回合玩家高亮 */
+    color: #667eea;
+}
+
+.stone {
+    /* 棋子样式 */
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stone.black {
+    /* 黑棋 */
+    background: radial-gradient(circle at 30% 30%, #555, #000);
+}
+
+.stone.white {
+    /* 白棋 */
+    background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+}
+
+.board-container {
+    /* 棋盘容器 */
+    background: #deb887;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.board {
+    /* 棋盘网格 */
+    display: grid;
+    grid-template-columns: repeat(15, 30px);
+    grid-template-rows: repeat(15, 30px);
+    gap: 0;
+    background: #deb887;
+    border: 2px solid #8b7355;
+}
+
+.cell {
+    /* 棋格 */
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(139, 115, 85, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.cell:hover:not(.occupied) {
+    /* 悬停效果 */
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.cell .stone {
+    /* 棋格内的棋子 */
+    width: 24px;
+    height: 24px;
+}
+
+.cell.winner {
+    /* 获胜连线高亮 */
+    background: rgba(255, 215, 0, 0.5);
+}
+
+.btn {
+    /* 按钮样式 */
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background: #fff;
+    color: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    /* 按钮悬停 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.result {
+    /* 游戏结果提示 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 60px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 100;
+}
+
+.result.show {
+    /* 显示结果 */
+    display: block;
+}
+
+.result h2 {
+    /* 结果标题 */
+    color: #667eea;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.result p {
+    /* 结果文字 */
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 20px;
+}
