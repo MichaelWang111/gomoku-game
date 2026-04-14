@@ -40,7 +40,7 @@
 
     <script type="module">
         // 导入游戏模块
-        import { initGame } from './js/game.js';
+        import { GomokuGame } from './js/game.js';
 
         // 获取 DOM 元素
         const elements = {
@@ -54,7 +54,8 @@
         };
 
         // 初始化游戏
-        initGame(elements);
+        const game = new GomokuGame();
+        game.init(elements);
     </script>
 </body>
 </html>
