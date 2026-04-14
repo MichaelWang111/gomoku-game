@@ -51,6 +51,14 @@ h1 {
     color: #667eea;
 }
 
+.rule-tip {
+    /* 规则提示 */
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 .stone {
     /* 棋子样式 */
     width: 24px;
@@ -103,6 +111,16 @@ h1 {
 .cell:hover:not(.occupied) {
     /* 悬停效果 */
     background: rgba(255, 255, 255, 0.2);
+}
+
+.cell.star-point::before {
+    /* 星位标记 */
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(139, 115, 85, 0.7);
+    border-radius: 50%;
 }
 
 .cell .stone {

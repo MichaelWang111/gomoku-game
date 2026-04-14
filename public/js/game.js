@@ -7,6 +7,13 @@
 const BOARD_SIZE = 15;  // 棋盘大小 15x15
 const WIN_COUNT = 5;     // 获胜所需连子数
 
+// 星位位置 (天元和星)
+const STAR_POINTS = [
+    [3, 3], [3, 7], [3, 11],
+    [7, 3], [7, 7], [7, 11],
+    [11, 3], [11, 7], [11, 11]
+];
+
 // 游戏状态
 let currentPlayer = 'black';  // 当前玩家
 let gameOver = false;        // 游戏是否结束
@@ -56,6 +63,11 @@ function initBoard() {
             cell.className = 'cell';
             cell.dataset.row = i;
             cell.dataset.col = j;
+
+            // 检查是否为星位
+            if (STAR_POINTS.some(([r, c]) => r === i && c === j)) {
+                cell.classList.add('star-point');
+            }
 
             // 绑定点击事件
             cell.addEventListener('click', () => handleClick(i, j));
